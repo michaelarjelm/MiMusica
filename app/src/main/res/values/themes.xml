@@ -1,9 +1,12 @@
+<!-- themes.xml: el tema de la app en modo claro. -->
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
+    <!-- Base.Theme.MiMusica: el tema base. Hereda el diseño Material 3 (botones, campos, casillas). -->
+    <!-- DayNight: tiene versión clara y oscura. NoActionBar: sin la barra de título de arriba. -->
     <style name="Base.Theme.MiMusica" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
     </style>
 
+    <!-- Theme.MiMusica: el tema que usa la app (android:theme en el manifest). Copia todo de Base.Theme.MiMusica. -->
     <style name="Theme.MiMusica" parent="Base.Theme.MiMusica" />
 </resources>

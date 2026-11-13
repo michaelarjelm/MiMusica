@@ -1,7 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+    manifest: la configuración de la app. Android lo lee antes de abrirla.
+    xmlns:android: permite usar los atributos que empiezan con android:
+    xmlns:tools: permite usar tools:, atributos que solo ve Android Studio.
+-->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <!--
+        application: datos de la app completa: ícono, nombre, tema y sus pantallas.
+        allowBackup: Android puede respaldar los datos de la app.
+        dataExtractionRules: reglas de qué se respalda y qué se copia a otro teléfono (res/xml).
+        fullBackupContent: reglas del respaldo en versiones antiguas de Android (res/xml).
+        icon: el ícono de la app en el teléfono.
+        label: el nombre de la app. Sale de app_name, en res/values/strings.xml.
+        roundIcon: el ícono redondo, para teléfonos que usan íconos redondos.
+        supportsRtl: la app se adapta a idiomas que se escriben de derecha a izquierda.
+        theme: el tema de toda la app: Theme.MiMusica, en res/values/themes.xml.
+    -->
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -11,27 +27,68 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MiMusica">
+        <!--
+            activity: registra una pantalla. Si una Activity no está aquí, la app se cae al abrirla.
+            name: la clase Kotlin de esta pantalla: IAActivity.kt.
+            exported: solo la puede abrir esta misma app.
+        -->
         <activity
             android:name=".IAActivity"
             android:exported="false" />
+        <!--
+            activity: registra una pantalla. Si una Activity no está aquí, la app se cae al abrirla.
+            name: la clase Kotlin de esta pantalla: RegistroActivity.kt.
+            exported: solo la puede abrir esta misma app.
+        -->
         <activity
             android:name=".RegistroActivity"
             android:exported="false" />
+        <!--
+            activity: registra una pantalla. Si una Activity no está aquí, la app se cae al abrirla.
+            name: la clase Kotlin de esta pantalla: DetalleActivity.kt.
+            exported: solo la puede abrir esta misma app.
+        -->
         <activity
             android:name=".DetalleActivity"
             android:exported="false" />
+        <!--
+            activity: registra una pantalla. Si una Activity no está aquí, la app se cae al abrirla.
+            name: la clase Kotlin de esta pantalla: BuscarActivity.kt.
+            exported: solo la puede abrir esta misma app.
+        -->
         <activity
             android:name=".BuscarActivity"
             android:exported="false" />
+        <!--
+            activity: registra una pantalla. Si una Activity no está aquí, la app se cae al abrirla.
+            name: la clase Kotlin de esta pantalla: ListaActivity.kt.
+            exported: solo la puede abrir esta misma app.
+        -->
         <activity
             android:name=".ListaActivity"
             android:exported="false" />
+        <!--
+            activity: registra una pantalla. Si una Activity no está aquí, la app se cae al abrirla.
+            name: la clase Kotlin de esta pantalla: MainActivity.kt.
+            exported: la puede abrir el sistema (el ícono de la app).
+        -->
         <activity
             android:name=".MainActivity"
             android:exported="true">
+            <!--
+                intent-filter: dice cuándo el sistema puede abrir esta pantalla.
+            -->
             <intent-filter>
+                <!--
+                    action: el tipo de pedido que atiende la pantalla.
+                    name: es la pantalla de entrada de la app.
+                -->
                 <action android:name="android.intent.action.MAIN" />
 
+                <!--
+                    category: dónde aparece la pantalla en el teléfono.
+                    name: aparece en el menú de apps del teléfono.
+                -->
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

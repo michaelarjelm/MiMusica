@@ -1,4 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+    LinearLayout: contenedor que ordena a sus hijos en una columna o en una fila.
+    xmlns:android: permite usar los atributos que empiezan con android:
+    xmlns:tools: permite usar tools:, atributos que solo ve Android Studio.
+    id: crea el id main. Con él, Kotlin encuentra este componente.
+    layout_width: ancho igual al de su contenedor.
+    layout_height: alto igual al de su contenedor.
+    orientation: sus hijos van uno debajo del otro.
+    tools:context: este layout lo usa IAActivity (solo sirve para la vista previa).
+-->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
@@ -7,6 +17,14 @@
     android:orientation="vertical"
     tools:context=".IAActivity">
 
+    <!--
+        LinearLayout: contenedor que ordena a sus hijos en una columna o en una fila.
+        layout_width: ancho igual al de su contenedor.
+        layout_height: alto justo para lo que tiene adentro.
+        gravity: centra a sus hijos en vertical.
+        orientation: sus hijos van uno al lado del otro.
+        padding: espacio por dentro, en los cuatro lados, entre el borde y lo que tiene adentro.
+    -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -14,6 +32,16 @@
         android:orientation="horizontal"
         android:padding="16dp">
 
+        <!--
+            TextView: muestra un texto que la persona solo lee.
+            id: crea el id txtTituloIA. Con él, Kotlin encuentra este componente.
+            layout_width: ancho 0: lo decide layout_weight.
+            layout_height: alto justo para lo que tiene adentro.
+            layout_weight: se queda con todo el espacio que sobra en su contenedor.
+            text: el texto que muestra: "Playlist con IA".
+            textSize: tamaño de la letra (sp: respeta el tamaño de letra que eligió la persona en su teléfono).
+            textStyle: letra en negrita.
+        -->
         <TextView
             android:id="@+id/txtTituloIA"
             android:layout_width="0dp"
@@ -23,6 +51,15 @@
             android:textSize="24sp"
             android:textStyle="bold" />
 
+        <!--
+            ImageButton: botón que muestra una imagen en vez de texto.
+            id: crea el id btnVolverIA. Con él, Kotlin encuentra este componente.
+            layout_width: ancho fijo de 48dp (dp: medida que se ve igual en cualquier pantalla).
+            layout_height: alto fijo de 48dp (dp: medida que se ve igual en cualquier pantalla).
+            background: fondo transparente: solo se ve el ícono.
+            contentDescription: lo que lee en voz alta el lector de pantalla, para personas que no ven: "Volver a la lista".
+            src: la imagen: el ícono ic_menu_close_clear_cancel, que ya viene con Android.
+        -->
         <ImageButton
             android:id="@+id/btnVolverIA"
             android:layout_width="48dp"
@@ -32,6 +69,15 @@
             android:src="@android:drawable/ic_menu_close_clear_cancel" />
     </LinearLayout>
 
+    <!--
+        LinearLayout: contenedor que ordena a sus hijos en una columna o en una fila.
+        layout_width: ancho igual al de su contenedor.
+        layout_height: alto 0: lo decide layout_weight.
+        layout_weight: se queda con todo el espacio que sobra en su contenedor.
+        orientation: sus hijos van uno debajo del otro.
+        paddingHorizontal: espacio por dentro, a la izquierda y a la derecha.
+        paddingBottom: espacio por dentro, abajo.
+    -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -40,12 +86,31 @@
         android:paddingHorizontal="16dp"
         android:paddingBottom="16dp">
 
+        <!--
+            TextView: muestra un texto que la persona solo lee.
+            layout_width: ancho justo para lo que tiene adentro.
+            layout_height: alto justo para lo que tiene adentro.
+            text: el texto que muestra: "¿Como te sientes hoy?".
+            textSize: tamaño de la letra (sp: respeta el tamaño de letra que eligió la persona en su teléfono).
+            textStyle: letra en negrita.
+        -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="¿Como te sientes hoy?"
             android:textSize="18sp"
             android:textStyle="bold" />
+        <!--
+            EditText: campo donde la persona escribe.
+            id: crea el id edtAnimo. Con él, Kotlin encuentra este componente.
+            layout_width: ancho igual al de su contenedor.
+            layout_height: alto justo para lo que tiene adentro.
+            layout_marginTop: espacio por fuera, arriba del componente.
+            gravity: el texto empieza arriba a la izquierda, no al medio del campo.
+            hint: texto gris de ayuda, se borra al escribir: "Ej:  Odio al mundo".
+            inputType: la tecla Enter baja de línea, para textos largos.
+            minLines: muestra por lo menos 3 líneas de alto.
+        -->
         <EditText
             android:id="@+id/edtAnimo"
             android:layout_width="match_parent"
@@ -55,6 +120,14 @@
             android:hint="Ej:  Odio al mundo"
             android:inputType="textMultiLine"
             android:minLines="3" />
+        <!--
+            Button: botón con texto.
+            id: crea el id btnGenerarIA. Con él, Kotlin encuentra este componente.
+            layout_width: ancho igual al de su contenedor.
+            layout_height: alto justo para lo que tiene adentro.
+            layout_margin: espacio por fuera, en los cuatro lados.
+            text: el texto del botón: "Generar playlist".
+        -->
         <Button
             android:id="@+id/btnGenerarIA"
             android:layout_width="match_parent"
@@ -62,6 +135,15 @@
             android:layout_margin="8dp"
             android:text="Generar playlist"/>
 
+        <!--
+            TextView: muestra un texto que la persona solo lee.
+            layout_width: ancho justo para lo que tiene adentro.
+            layout_height: alto justo para lo que tiene adentro.
+            layout_marginTop: espacio por fuera, arriba del componente.
+            text: el texto que muestra: "Tu playlist".
+            textSize: tamaño de la letra (sp: respeta el tamaño de letra que eligió la persona en su teléfono).
+            textStyle: letra en negrita.
+        -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -69,12 +151,28 @@
             android:text="Tu playlist"
             android:textSize="18sp"
             android:textStyle="bold"/>
+        <!--
+            ScrollView: deja deslizar su contenido cuando no cabe en la pantalla. Tiene un solo hijo.
+            layout_width: ancho igual al de su contenedor.
+            layout_height: alto 0: lo decide layout_weight.
+            layout_weight: se queda con todo el espacio que sobra en su contenedor.
+            layout_marginTop: espacio por fuera, arriba del componente.
+            background: color de fondo, escrito en código hexadecimal.
+        -->
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
             android:layout_marginTop="8dp"
             android:background="#F3EDF7">
+            <!--
+                TextView: muestra un texto que la persona solo lee.
+                id: crea el id txtRespuestaIA. Con él, Kotlin encuentra este componente.
+                layout_width: ancho igual al de su contenedor.
+                layout_height: alto justo para lo que tiene adentro.
+                text: el texto de ejemplo que muestra. Cada \n es un salto de línea.
+                textSize: tamaño de la letra (sp: respeta el tamaño de letra que eligió la persona en su teléfono).
+            -->
             <TextView
                 android:id="@+id/txtRespuestaIA"
                 android:layout_width="match_parent"

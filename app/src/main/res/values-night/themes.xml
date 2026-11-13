@@ -1,5 +1,6 @@
+<!-- values-night/themes.xml: el tema de la app cuando el teléfono está en modo oscuro. -->
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
+    <!-- Mismo nombre que en values/themes.xml: en modo oscuro, Android usa este en vez de aquel. -->
     <style name="Base.Theme.MiMusica" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your dark theme here. -->
         <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->

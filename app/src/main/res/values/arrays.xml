@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- arrays.xml: listas de textos. -->
 <resources>
+    <!-- tipos_busqueda: las opciones del Spinner de activity_buscar.xml (android:entries). -->
     <string-array name="tipos_busqueda">
+        <!-- Primera opción del Spinner. -->
         <item>Por canción</item>
+        <!-- Segunda opción del Spinner. -->
         <item>Por artista</item>
     </string-array>
 </resources>

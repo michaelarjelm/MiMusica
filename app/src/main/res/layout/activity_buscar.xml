@@ -1,4 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+    LinearLayout: contenedor que ordena a sus hijos en una columna o en una fila.
+    xmlns:android: permite usar los atributos que empiezan con android:
+    xmlns:tools: permite usar tools:, atributos que solo ve Android Studio.
+    id: crea el id main. Con él, Kotlin encuentra este componente.
+    layout_width: ancho igual al de su contenedor.
+    layout_height: alto igual al de su contenedor.
+    orientation: sus hijos van uno debajo del otro.
+    tools:context: este layout lo usa BuscarActivity (solo sirve para la vista previa).
+-->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
@@ -7,18 +17,42 @@
     android:orientation="vertical"
     tools:context=".BuscarActivity">
 
+    <!--
+        LinearLayout: contenedor que ordena a sus hijos en una columna o en una fila.
+        layout_width: ancho igual al de su contenedor.
+        layout_height: alto justo para lo que tiene adentro.
+        orientation: sus hijos van uno debajo del otro.
+        padding: espacio por dentro, en los cuatro lados, entre el borde y lo que tiene adentro.
+    -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="16dp"
         >
+        <!--
+            TextView: muestra un texto que la persona solo lee.
+            layout_width: ancho igual al de su contenedor.
+            layout_height: alto justo para lo que tiene adentro.
+            text: el texto que muestra: "Buscar Canción".
+            textSize: tamaño de la letra (sp: respeta el tamaño de letra que eligió la persona en su teléfono).
+            textStyle: letra en negrita.
+        -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Buscar Canción"
             android:textSize="24sp"
             android:textStyle="bold"/>
+        <!--
+            EditText: campo donde la persona escribe.
+            id: crea el id edtBusquedaBuscar. Con él, Kotlin encuentra este componente.
+            layout_width: ancho igual al de su contenedor.
+            layout_height: alto justo para lo que tiene adentro.
+            layout_marginTop: espacio por fuera, arriba del componente.
+            hint: texto gris de ayuda, se borra al escribir: "Fix You".
+            inputType: teclado de texto normal.
+        -->
         <EditText
             android:id="@+id/edtBusquedaBuscar"
             android:layout_width="match_parent"
@@ -26,6 +60,14 @@
             android:layout_marginTop="16dp"
             android:hint="Fix You"
             android:inputType="text"/>
+        <!--
+            LinearLayout: contenedor que ordena a sus hijos en una columna o en una fila.
+            layout_width: ancho igual al de su contenedor.
+            layout_height: alto justo para lo que tiene adentro.
+            layout_marginTop: espacio por fuera, arriba del componente.
+            orientation: sus hijos van uno al lado del otro.
+            gravity: centra a sus hijos en vertical.
+        -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -33,6 +75,14 @@
             android:orientation="horizontal"
             android:gravity="center_vertical">
 
+            <!--
+                Spinner: lista desplegable para elegir una opción.
+                id: crea el id spnTipoBusqueda. Con él, Kotlin encuentra este componente.
+                layout_width: ancho 0: lo decide layout_weight.
+                layout_height: alto justo para lo que tiene adentro.
+                layout_weight: se queda con todo el espacio que sobra en su contenedor.
+                entries: las opciones vienen de tipos_busqueda, en res/values/arrays.xml.
+            -->
             <Spinner
                 android:id="@+id/spnTipoBusqueda"
                 android:layout_width="0dp"
@@ -40,6 +90,13 @@
                 android:layout_weight="1"
                 android:entries="@array/tipos_busqueda"/>
 
+            <!--
+                Button: botón con texto.
+                id: crea el id btnBuscarBusqueda. Con él, Kotlin encuentra este componente.
+                layout_width: ancho justo para lo que tiene adentro.
+                layout_height: alto justo para lo que tiene adentro.
+                text: el texto del botón: "Buscar".
+            -->
             <Button
                 android:id="@+id/btnBuscarBusqueda"
                 android:layout_width="wrap_content"
@@ -49,23 +106,52 @@
         </LinearLayout>
 
     </LinearLayout>
+    <!--
+        TextView: muestra un texto que la persona solo lee.
+        layout_width: ancho justo para lo que tiene adentro.
+        layout_height: alto justo para lo que tiene adentro.
+        layout_marginStart: espacio por fuera, a la izquierda (al inicio).
+        text: el texto que muestra: "Resultados".
+        textStyle: letra en negrita.
+    -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:text="Resultados"
         android:textStyle="bold"/>
+    <!--
+        ScrollView: deja deslizar su contenido cuando no cabe en la pantalla. Tiene un solo hijo.
+        layout_width: ancho igual al de su contenedor.
+        layout_height: alto 0: lo decide layout_weight.
+        layout_weight: se queda con todo el espacio que sobra en su contenedor.
+    -->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1">
 
+        <!--
+            LinearLayout: contenedor que ordena a sus hijos en una columna o en una fila.
+            layout_width: ancho igual al de su contenedor.
+            layout_height: alto justo para lo que tiene adentro.
+            orientation: sus hijos van uno debajo del otro.
+            paddingHorizontal: espacio por dentro, a la izquierda y a la derecha.
+        -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:paddingHorizontal="16dp">
 
+            <!--
+                LinearLayout: contenedor que ordena a sus hijos en una columna o en una fila.
+                layout_width: ancho igual al de su contenedor.
+                layout_height: alto justo para lo que tiene adentro.
+                orientation: sus hijos van uno al lado del otro.
+                gravity: centra a sus hijos en vertical.
+                paddingVertical: espacio por dentro, arriba y abajo.
+            -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -73,11 +159,26 @@
                 android:gravity="center_vertical"
                 android:paddingVertical="8dp">
 
+                <!--
+                    ImageView: muestra una imagen.
+                    layout_width: ancho fijo de 56dp (dp: medida que se ve igual en cualquier pantalla).
+                    layout_height: alto fijo de 56dp (dp: medida que se ve igual en cualquier pantalla).
+                    src: la imagen: el ícono de la app (res/mipmap), como ejemplo.
+                    contentDescription: lo que lee en voz alta el lector de pantalla, para personas que no ven: "Carátula".
+                -->
                 <ImageView
                     android:layout_width="56dp"
                     android:layout_height="56dp"
                     android:src="@mipmap/ic_launcher"
                     android:contentDescription="Carátula"/>
+                <!--
+                    LinearLayout: contenedor que ordena a sus hijos en una columna o en una fila.
+                    layout_width: ancho 0: lo decide layout_weight.
+                    layout_height: alto justo para lo que tiene adentro.
+                    layout_weight: se queda con todo el espacio que sobra en su contenedor.
+                    layout_marginStart: espacio por fuera, a la izquierda (al inicio).
+                    orientation: sus hijos van uno debajo del otro.
+                -->
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -85,6 +186,14 @@
                     android:layout_marginStart="12dp"
                     android:orientation="vertical">
 
+                    <!--
+                        TextView: muestra un texto que la persona solo lee.
+                        layout_width: ancho justo para lo que tiene adentro.
+                        layout_height: alto justo para lo que tiene adentro.
+                        textStyle: letra en negrita.
+                        text: el texto que muestra: "Fix You".
+                        textSize: tamaño de la letra (sp: respeta el tamaño de letra que eligió la persona en su teléfono).
+                    -->
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -92,6 +201,13 @@
                         android:text="Fix You"
                         android:textSize="18sp"/>
 
+                    <!--
+                        TextView: muestra un texto que la persona solo lee.
+                        layout_width: ancho justo para lo que tiene adentro.
+                        layout_height: alto justo para lo que tiene adentro.
+                        text: el texto que muestra: "Coldplay - Alternativa".
+                        textSize: tamaño de la letra (sp: respeta el tamaño de letra que eligió la persona en su teléfono).
+                    -->
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -99,6 +215,14 @@
                         android:textSize="14sp"/>
 
                 </LinearLayout>
+                <!--
+                    ImageButton: botón que muestra una imagen en vez de texto.
+                    layout_width: ancho fijo de 48dp (dp: medida que se ve igual en cualquier pantalla).
+                    layout_height: alto fijo de 48dp (dp: medida que se ve igual en cualquier pantalla).
+                    src: la imagen: el ícono ic_media_play, que ya viene con Android.
+                    background: fondo transparente: solo se ve el ícono.
+                    contentDescription: lo que lee en voz alta el lector de pantalla, para personas que no ven: "Escuchar 30 segundos".
+                -->
                 <ImageButton
                     android:layout_width="48dp"
                     android:layout_height="48dp"
@@ -106,6 +230,14 @@
                     android:background="@android:color/transparent"
                     android:contentDescription="Escuchar 30 segundos"/>
             </LinearLayout>
+            <!--
+                LinearLayout: contenedor que ordena a sus hijos en una columna o en una fila.
+                layout_width: ancho igual al de su contenedor.
+                layout_height: alto justo para lo que tiene adentro.
+                orientation: sus hijos van uno al lado del otro.
+                gravity: centra a sus hijos en vertical.
+                paddingVertical: espacio por dentro, arriba y abajo.
+            -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -113,11 +245,26 @@
                 android:gravity="center_vertical"
                 android:paddingVertical="8dp">
 
+                <!--
+                    ImageView: muestra una imagen.
+                    layout_width: ancho fijo de 56dp (dp: medida que se ve igual en cualquier pantalla).
+                    layout_height: alto fijo de 56dp (dp: medida que se ve igual en cualquier pantalla).
+                    src: la imagen: el ícono de la app (res/mipmap), como ejemplo.
+                    contentDescription: lo que lee en voz alta el lector de pantalla, para personas que no ven: "Carátula".
+                -->
                 <ImageView
                     android:layout_width="56dp"
                     android:layout_height="56dp"
                     android:src="@mipmap/ic_launcher"
                     android:contentDescription="Carátula"/>
+                <!--
+                    LinearLayout: contenedor que ordena a sus hijos en una columna o en una fila.
+                    layout_width: ancho 0: lo decide layout_weight.
+                    layout_height: alto justo para lo que tiene adentro.
+                    layout_weight: se queda con todo el espacio que sobra en su contenedor.
+                    layout_marginStart: espacio por fuera, a la izquierda (al inicio).
+                    orientation: sus hijos van uno debajo del otro.
+                -->
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -125,6 +272,14 @@
                     android:layout_marginStart="12dp"
                     android:orientation="vertical">
 
+                    <!--
+                        TextView: muestra un texto que la persona solo lee.
+                        layout_width: ancho justo para lo que tiene adentro.
+                        layout_height: alto justo para lo que tiene adentro.
+                        textStyle: letra en negrita.
+                        text: el texto que muestra: "Fix You".
+                        textSize: tamaño de la letra (sp: respeta el tamaño de letra que eligió la persona en su teléfono).
+                    -->
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -132,6 +287,13 @@
                         android:text="Fix You"
                         android:textSize="18sp"/>
 
+                    <!--
+                        TextView: muestra un texto que la persona solo lee.
+                        layout_width: ancho justo para lo que tiene adentro.
+                        layout_height: alto justo para lo que tiene adentro.
+                        text: el texto que muestra: "Coldplay - Alternativa".
+                        textSize: tamaño de la letra (sp: respeta el tamaño de letra que eligió la persona en su teléfono).
+                    -->
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -139,6 +301,14 @@
                         android:textSize="14sp"/>
 
                 </LinearLayout>
+                <!--
+                    ImageButton: botón que muestra una imagen en vez de texto.
+                    layout_width: ancho fijo de 48dp (dp: medida que se ve igual en cualquier pantalla).
+                    layout_height: alto fijo de 48dp (dp: medida que se ve igual en cualquier pantalla).
+                    src: la imagen: el ícono ic_media_play, que ya viene con Android.
+                    background: fondo transparente: solo se ve el ícono.
+                    contentDescription: lo que lee en voz alta el lector de pantalla, para personas que no ven: "Escuchar 30 segundos".
+                -->
                 <ImageButton
                     android:layout_width="48dp"
                     android:layout_height="48dp"
@@ -146,6 +316,14 @@
                     android:background="@android:color/transparent"
                     android:contentDescription="Escuchar 30 segundos"/>
             </LinearLayout>
+            <!--
+                LinearLayout: contenedor que ordena a sus hijos en una columna o en una fila.
+                layout_width: ancho igual al de su contenedor.
+                layout_height: alto justo para lo que tiene adentro.
+                orientation: sus hijos van uno al lado del otro.
+                gravity: centra a sus hijos en vertical.
+                paddingVertical: espacio por dentro, arriba y abajo.
+            -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -153,11 +331,26 @@
                 android:gravity="center_vertical"
                 android:paddingVertical="8dp">
 
+                <!--
+                    ImageView: muestra una imagen.
+                    layout_width: ancho fijo de 56dp (dp: medida que se ve igual en cualquier pantalla).
+                    layout_height: alto fijo de 56dp (dp: medida que se ve igual en cualquier pantalla).
+                    src: la imagen: el ícono de la app (res/mipmap), como ejemplo.
+                    contentDescription: lo que lee en voz alta el lector de pantalla, para personas que no ven: "Carátula".
+                -->
                 <ImageView
                     android:layout_width="56dp"
                     android:layout_height="56dp"
                     android:src="@mipmap/ic_launcher"
                     android:contentDescription="Carátula"/>
+                <!--
+                    LinearLayout: contenedor que ordena a sus hijos en una columna o en una fila.
+                    layout_width: ancho 0: lo decide layout_weight.
+                    layout_height: alto justo para lo que tiene adentro.
+                    layout_weight: se queda con todo el espacio que sobra en su contenedor.
+                    layout_marginStart: espacio por fuera, a la izquierda (al inicio).
+                    orientation: sus hijos van uno debajo del otro.
+                -->
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -165,6 +358,14 @@
                     android:layout_marginStart="12dp"
                     android:orientation="vertical">
 
+                    <!--
+                        TextView: muestra un texto que la persona solo lee.
+                        layout_width: ancho justo para lo que tiene adentro.
+                        layout_height: alto justo para lo que tiene adentro.
+                        textStyle: letra en negrita.
+                        text: el texto que muestra: "Fix You".
+                        textSize: tamaño de la letra (sp: respeta el tamaño de letra que eligió la persona en su teléfono).
+                    -->
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -172,6 +373,13 @@
                         android:text="Fix You"
                         android:textSize="18sp"/>
 
+                    <!--
+                        TextView: muestra un texto que la persona solo lee.
+                        layout_width: ancho justo para lo que tiene adentro.
+                        layout_height: alto justo para lo que tiene adentro.
+                        text: el texto que muestra: "Coldplay - Alternativa".
+                        textSize: tamaño de la letra (sp: respeta el tamaño de letra que eligió la persona en su teléfono).
+                    -->
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -179,6 +387,14 @@
                         android:textSize="14sp"/>
 
                 </LinearLayout>
+                <!--
+                    ImageButton: botón que muestra una imagen en vez de texto.
+                    layout_width: ancho fijo de 48dp (dp: medida que se ve igual en cualquier pantalla).
+                    layout_height: alto fijo de 48dp (dp: medida que se ve igual en cualquier pantalla).
+                    src: la imagen: el ícono ic_media_play, que ya viene con Android.
+                    background: fondo transparente: solo se ve el ícono.
+                    contentDescription: lo que lee en voz alta el lector de pantalla, para personas que no ven: "Escuchar 30 segundos".
+                -->
                 <ImageButton
                     android:layout_width="48dp"
                     android:layout_height="48dp"

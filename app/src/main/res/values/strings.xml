@@ -1,3 +1,5 @@
+<!-- strings.xml: los textos de la app, cada uno con un nombre. -->
 <resources>
+    <!-- app_name: el nombre de la app. Se ve bajo el ícono del teléfono (android:label en el manifest). -->
     <string name="app_name">MiMusica</string>
 </resources>

@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- colors.xml: los colores de la app, cada uno con un nombre. Se usan con @color/nombre. -->
 <resources>
+    <!-- black: negro. Los dos primeros dígitos (FF) son la opacidad: FF es sin transparencia. -->
     <color name="black">#FF000000</color>
+    <!-- white: blanco, también sin transparencia. -->
     <color name="white">#FFFFFFFF</color>
 </resources>
