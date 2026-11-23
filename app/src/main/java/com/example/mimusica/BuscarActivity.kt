@@ -1,35 +1,39 @@
-// El paquete: la carpeta donde vive este archivo. Debe ser igual al namespace del proyecto.
 package com.example.mimusica
 
-// Bundle: guarda el estado de la pantalla, por ejemplo al girar el teléfono.
 import android.os.Bundle
-// enableEdgeToEdge: la pantalla usa todo el teléfono, hasta los bordes.
+import android.view.View
+import android.widget.EditText
+import android.widget.Spinner
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
-// AppCompatActivity: la clase base de una pantalla de Android.
 import androidx.appcompat.app.AppCompatActivity
-// ViewCompat: herramientas para trabajar con los componentes.
 import androidx.core.view.ViewCompat
-// WindowInsetsCompat: mide las barras del sistema (hora, batería y botones).
 import androidx.core.view.WindowInsetsCompat
 
-// BuscarActivity es una pantalla: hereda todo lo que sabe hacer AppCompatActivity.
 class BuscarActivity : AppCompatActivity() {
-    // onCreate se ejecuta una vez, cuando se abre la pantalla.
     override fun onCreate(savedInstanceState: Bundle?) {
-        // Primero hace lo que Android hace siempre al crear una pantalla.
         super.onCreate(savedInstanceState)
-        // Dibuja la pantalla detrás de las barras del sistema.
         enableEdgeToEdge()
-        // Dibuja en esta pantalla el layout activity_buscar.xml (res/layout).
         setContentView(R.layout.activity_buscar)
-        // Busca el componente con id main y espera a que Android mida las barras del sistema.
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            // Toma el tamaño de la barra de arriba (hora, batería) y la de abajo (botones).
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            // Deja ese espacio como padding, para que las barras no tapen nada.
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            // Devuelve las medidas, por si otro componente las necesita.
             insets
         }
+    }
+
+    fun btnBuscarOnClick(view: View) {
+        val edtBusqueda = findViewById<EditText>(R.id.edtBusquedaBuscar)
+        val spnTipo = findViewById<Spinner>(R.id.spnTipoBusqueda)
+        val busqueda = edtBusqueda.text.toString().trim()
+        val tipo = spnTipo.selectedItem.toString()
+
+        if (busqueda.isEmpty()) {
+            edtBusqueda.error = "Escribe qué quieres buscar"
+            edtBusqueda.requestFocus()
+            return
+        }
+
+        Toast.makeText(this, "$tipo: $busqueda", Toast.LENGTH_SHORT).show()
     }
 }

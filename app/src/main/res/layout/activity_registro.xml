@@ -1,13 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-    ScrollView: deja deslizar su contenido cuando no cabe en la pantalla. Tiene un solo hijo.
-    xmlns:android: permite usar los atributos que empiezan con android:
-    xmlns:tools: permite usar tools:, atributos que solo ve Android Studio.
-    id: crea el id main. Con él, Kotlin encuentra este componente.
-    layout_width: ancho igual al de su contenedor.
-    layout_height: alto igual al de su contenedor.
-    tools:context: este layout lo usa RegistroActivity (solo sirve para la vista previa).
--->
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
@@ -15,275 +6,118 @@
     android:layout_height="match_parent"
     tools:context=".RegistroActivity">
 
-    <!--
-        LinearLayout: contenedor que ordena a sus hijos en una columna o en una fila.
-        layout_width: ancho igual al de su contenedor.
-        layout_height: alto justo para lo que tiene adentro.
-        orientation: sus hijos van uno debajo del otro.
-        padding: espacio por dentro, en los cuatro lados, entre el borde y lo que tiene adentro.
-    -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="32dp">
-        <!--
-            TextView: muestra un texto que la persona solo lee.
-            id: crea el id txtTituloRegistro. Con él, Kotlin encuentra este componente.
-            layout_width: ancho justo para lo que tiene adentro.
-            layout_height: alto justo para lo que tiene adentro.
-            layout_gravity: se ubica al centro, en horizontal, dentro de su contenedor.
-            text: el texto que muestra: "Crear Cuenta".
-            textSize: tamaño de la letra (sp: respeta el tamaño de letra que eligió la persona en su teléfono).
-            textStyle: letra en negrita.
-        -->
+
         <TextView
             android:id="@+id/txtTituloRegistro"
+            style="@style/Titulo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:text="Crear Cuenta"
-            android:textSize="28sp"
-            android:textStyle="bold"
-            />
-        <!--
-            TextView: muestra un texto que la persona solo lee.
-            id: crea el id txtSubTituloRegistro. Con él, Kotlin encuentra este componente.
-            layout_width: ancho justo para lo que tiene adentro.
-            layout_height: alto justo para lo que tiene adentro.
-            layout_gravity: se ubica al centro, en horizontal, dentro de su contenedor.
-            text: el texto que muestra: "Guarda tus canciones favoritas".
-            textSize: tamaño de la letra (sp: respeta el tamaño de letra que eligió la persona en su teléfono).
-        -->
+            android:text="@string/registro_titulo" />
+
         <TextView
-            android:id="@+id/txtSubTituloRegistro"
+            android:id="@+id/txtSubtituloRegistro"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:text="Guarda tus canciones favoritas"
-            android:textSize="14sp"
-            />
-        <!--
-            EditText: campo donde la persona escribe.
-            id: crea el id edtNombreRegistro. Con él, Kotlin encuentra este componente.
-            layout_width: ancho igual al de su contenedor.
-            layout_height: alto justo para lo que tiene adentro.
-            layout_marginTop: espacio por fuera, arriba del componente.
-            hint: texto gris de ayuda, se borra al escribir: "Nombre".
-            inputType: pone mayúscula al inicio de cada palabra, como en un nombre.
-        -->
+            android:layout_marginBottom="8dp"
+            android:text="@string/registro_subtitulo"
+            android:textColor="@color/texto_suave"
+            android:textSize="14sp" />
+
         <EditText
             android:id="@+id/edtNombreRegistro"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:hint="Nombre"
-            android:inputType="textPersonName"
-            />
-        <!--
-            EditText: campo donde la persona escribe.
-            id: crea el id edtCorreoRegistro. Con él, Kotlin encuentra este componente.
-            layout_width: ancho igual al de su contenedor.
-            layout_height: alto justo para lo que tiene adentro.
-            layout_marginTop: espacio por fuera, arriba del componente.
-            hint: texto gris de ayuda, se borra al escribir: "Correo".
-            inputType: teclado con @, para escribir correos.
-        -->
+            style="@style/Campo"
+            android:hint="@string/hint_nombre"
+            android:inputType="textPersonName" />
+
         <EditText
             android:id="@+id/edtCorreoRegistro"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:hint="Correo"
-            android:inputType="textEmailAddress"
-            />
-        <!--
-            EditText: campo donde la persona escribe.
-            id: crea el id edtPassRegistro. Con él, Kotlin encuentra este componente.
-            layout_width: ancho igual al de su contenedor.
-            layout_height: alto justo para lo que tiene adentro.
-            layout_marginTop: espacio por fuera, arriba del componente.
-            hint: texto gris de ayuda, se borra al escribir: "Contraseña".
-            inputType: esconde lo que se escribe con puntos.
-        -->
-        <EditText
-            android:id="@+id/edtPassRegistro"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:hint="Contraseña"
-            android:inputType="textPassword"
-            />
-        <!--
-            EditText: campo donde la persona escribe.
-            id: crea el id edtRepeatPassRegistro. Con él, Kotlin encuentra este componente.
-            layout_width: ancho igual al de su contenedor.
-            layout_height: alto justo para lo que tiene adentro.
-            layout_marginTop: espacio por fuera, arriba del componente.
-            hint: texto gris de ayuda, se borra al escribir: "Repetir Contraseña".
-            inputType: esconde lo que se escribe con puntos.
-        -->
-        <EditText
-            android:id="@+id/edtRepeatPassRegistro"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:hint="Repetir Contraseña"
-            android:inputType="textPassword"
-            />
+            style="@style/Campo"
+            android:hint="@string/hint_correo"
+            android:inputType="textEmailAddress" />
 
-        <!--
-            TextView: muestra un texto que la persona solo lee.
-            layout_width: ancho justo para lo que tiene adentro.
-            layout_height: alto justo para lo que tiene adentro.
-            layout_marginTop: espacio por fuera, arriba del componente.
-            text: el texto que muestra: "¿Que escuchas mas?".
-            textSize: tamaño de la letra (sp: respeta el tamaño de letra que eligió la persona en su teléfono).
-            textStyle: letra en negrita.
-        -->
+        <EditText
+            android:id="@+id/edtClaveRegistro"
+            style="@style/Campo"
+            android:hint="@string/hint_clave"
+            android:inputType="textPassword" />
+
+        <EditText
+            android:id="@+id/edtRepetirClaveRegistro"
+            style="@style/Campo"
+            android:hint="@string/hint_repetir_clave"
+            android:inputType="textPassword" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
-            android:text="¿Que escuchas mas?"
+            android:text="@string/registro_pregunta_genero"
             android:textSize="16sp"
-            android:textStyle="bold"/>
+            android:textStyle="bold" />
 
-        <!--
-            RadioGroup: grupo de opciones donde solo una puede quedar marcada.
-            id: crea el id rgGenero. Con él, Kotlin encuentra este componente.
-            layout_width: ancho igual al de su contenedor.
-            layout_height: alto justo para lo que tiene adentro.
-            orientation: sus hijos van uno al lado del otro.
-        -->
         <RadioGroup
-            android:id="@+id/rgGenero"
+            android:id="@+id/rgGeneroRegistro"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <!--
-                RadioButton: una opción del grupo.
-                id: crea el id rbRock. Con él, Kotlin encuentra este componente.
-                layout_width: ancho justo para lo que tiene adentro.
-                layout_height: alto justo para lo que tiene adentro.
-                checked: aparece marcado al abrir la pantalla.
-                text: lo que se lee al lado del círculo: "Rock".
-            -->
             <RadioButton
-                android:id="@+id/rbRock"
+                android:id="@+id/rbRockRegistro"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:checked="true"
-                android:text="Rock"/>
-            <!--
-                RadioButton: una opción del grupo.
-                id: crea el id rbPop. Con él, Kotlin encuentra este componente.
-                layout_width: ancho justo para lo que tiene adentro.
-                layout_height: alto justo para lo que tiene adentro.
-                checked: aparece sin marcar.
-                text: lo que se lee al lado del círculo: "Pop".
-            -->
+                android:text="@string/genero_rock" />
+
             <RadioButton
-                android:id="@+id/rbPop"
+                android:id="@+id/rbPopRegistro"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:checked="false"
-                android:text="Pop"/>
-            <!--
-                RadioButton: una opción del grupo.
-                id: crea el id rbUrbano. Con él, Kotlin encuentra este componente.
-                layout_width: ancho justo para lo que tiene adentro.
-                layout_height: alto justo para lo que tiene adentro.
-                checked: aparece sin marcar.
-                text: lo que se lee al lado del círculo: "Urbano".
-            -->
+                android:text="@string/genero_pop" />
+
             <RadioButton
-                android:id="@+id/rbUrbano"
+                android:id="@+id/rbUrbanoRegistro"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:checked="false"
-                android:text="Urbano"/>
-            <!--
-                RadioButton: una opción del grupo.
-                id: crea el id rbDance. Con él, Kotlin encuentra este componente.
-                layout_width: ancho justo para lo que tiene adentro.
-                layout_height: alto justo para lo que tiene adentro.
-                checked: aparece sin marcar.
-                text: lo que se lee al lado del círculo: "Dance".
-            -->
+                android:text="@string/genero_urbano" />
+
             <RadioButton
-                android:id="@+id/rbDance"
+                android:id="@+id/rbOtroRegistro"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:checked="false"
-                android:text="Dance"/>
-            <!--
-                RadioButton: una opción del grupo.
-                id: crea el id rbOtro. Con él, Kotlin encuentra este componente.
-                layout_width: ancho justo para lo que tiene adentro.
-                layout_height: alto justo para lo que tiene adentro.
-                checked: aparece sin marcar.
-                text: lo que se lee al lado del círculo: "Otro".
-            -->
-            <RadioButton
-                android:id="@+id/rbOtro"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:checked="false"
-                android:text="Otro"/>
+                android:text="@string/genero_otro" />
         </RadioGroup>
-        <!--
-            CheckBox: casilla que se marca o se desmarca.
-            id: crea el id chekTerminosRegistro. Con él, Kotlin encuentra este componente.
-            layout_width: ancho justo para lo que tiene adentro.
-            layout_height: alto justo para lo que tiene adentro.
-            layout_marginTop: espacio por fuera, arriba del componente.
-            text: lo que se lee al lado de la casilla: "Acepto los terminos y condiciones".
-        -->
+
         <CheckBox
-            android:id="@+id/chekTerminosRegistro"
+            android:id="@+id/chkTerminosRegistro"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="Acepto los terminos y condiciones"/>
+            android:text="@string/registro_terminos" />
 
-        <!--
-            Button: botón con texto.
-            id: crea el id btnCrearCuenta. Con él, Kotlin encuentra este componente.
-            layout_width: ancho igual al de su contenedor.
-            layout_height: alto justo para lo que tiene adentro.
-            layout_marginTop: espacio por fuera, arriba del componente.
-            text: el texto del botón: "Crear Cuenta".
-        -->
         <Button
-            android:id="@+id/btnCrearCuenta"
+            android:id="@+id/btnCrearCuentaRegistro"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="Crear Cuenta"/>
+            android:onClick="btnCrearCuentaOnClick"
+            android:text="@string/registro_boton" />
 
-        <!--
-            TextView: muestra un texto que la persona solo lee.
-            id: crea el id txtIrAlLogin. Con él, Kotlin encuentra este componente.
-            layout_width: ancho justo para lo que tiene adentro.
-            layout_height: alto justo para lo que tiene adentro.
-            layout_gravity: se ubica al centro, en horizontal, dentro de su contenedor.
-            layout_marginTop: espacio por fuera, arriba del componente.
-            text: el texto que muestra: "¿Ya tienes cuenta? Ingresa".
-            textColor: color del texto, escrito en código hexadecimal.
-        -->
         <TextView
-            android:id="@+id/txtIrAlLogin"
+            android:id="@+id/txtIrLoginRegistro"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="16dp"
-            android:text="¿Ya tienes cuenta? Ingresa"
-            android:textColor="#6750A4"
-            />
-
+            android:onClick="txtIrLoginOnClick"
+            android:text="@string/registro_ir_login"
+            android:textColor="@color/primario" />
 
     </LinearLayout>
-
 </ScrollView>

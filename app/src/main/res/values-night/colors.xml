@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="primario">#CE93D8</color>
+    <color name="fondo_tarjeta">#2E2233</color>
+    <color name="texto_suave">#BBBBBB</color>
+</resources>

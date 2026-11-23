@@ -1,13 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-    ScrollView: deja deslizar su contenido cuando no cabe en la pantalla. Tiene un solo hijo.
-    xmlns:android: permite usar los atributos que empiezan con android:
-    xmlns:tools: permite usar tools:, atributos que solo ve Android Studio.
-    id: crea el id main. Con él, Kotlin encuentra este componente.
-    layout_width: ancho igual al de su contenedor.
-    layout_height: alto igual al de su contenedor.
-    tools:context: este layout lo usa DetalleActivity (solo sirve para la vista previa).
--->
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
@@ -15,147 +6,74 @@
     android:layout_height="match_parent"
     tools:context=".DetalleActivity">
 
-<!--
-    LinearLayout: contenedor que ordena a sus hijos en una columna o en una fila.
-    layout_width: ancho igual al de su contenedor.
-    layout_height: alto justo para lo que tiene adentro.
-    orientation: sus hijos van uno debajo del otro.
-    gravity: centra a sus hijos en vertical.
-    padding: espacio por dentro, en los cuatro lados, entre el borde y lo que tiene adentro.
--->
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:gravity="center_vertical"
-    android:padding="24sp">
-    <!--
-        ImageButton: botón que muestra una imagen en vez de texto.
-        id: crea el id imgCaratulaDetalle. Con él, Kotlin encuentra este componente.
-        layout_width: ancho fijo de 200dp (dp: medida que se ve igual en cualquier pantalla).
-        layout_height: alto fijo de 200dp (dp: medida que se ve igual en cualquier pantalla).
-        src: la imagen: el ícono de la app (res/mipmap), como ejemplo.
-        contentDescription: lo que lee en voz alta el lector de pantalla, para personas que no ven: "Caratula".
-    -->
-    <ImageButton
-        android:id="@+id/imgCaratulaDetalle"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:src="@mipmap/ic_launcher"
-        android:contentDescription="Caratula"/>
-
-    <!--
-        TextView: muestra un texto que la persona solo lee.
-        id: crea el id txtCancionDetalle. Con él, Kotlin encuentra este componente.
-        layout_width: ancho justo para lo que tiene adentro.
-        layout_height: alto justo para lo que tiene adentro.
-        layout_marginTop: espacio por fuera, arriba del componente.
-        textSize: tamaño de la letra (sp: respeta el tamaño de letra que eligió la persona en su teléfono).
-        text: el texto que muestra: "Fix You".
-        textStyle: letra en negrita.
-    -->
-    <TextView
-        android:id="@+id/txtCancionDetalle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:textSize="26sp"
-        android:text="Fix You"
-        android:textStyle="bold"/>
-
-    <!--
-        TextView: muestra un texto que la persona solo lee.
-        id: crea el id txtArtistaDetalle. Con él, Kotlin encuentra este componente.
-        layout_width: ancho justo para lo que tiene adentro.
-        layout_height: alto justo para lo que tiene adentro.
-        textSize: tamaño de la letra (sp: respeta el tamaño de letra que eligió la persona en su teléfono).
-        text: el texto que muestra: "Coldplay".
-    -->
-    <TextView
-        android:id="@+id/txtArtistaDetalle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="18sp"
-        android:text="Coldplay"
-        />
-
-    <!--
-        TextView: muestra un texto que la persona solo lee.
-        id: crea el id txtGeneroDetalle. Con él, Kotlin encuentra este componente.
-        layout_width: ancho justo para lo que tiene adentro.
-        layout_height: alto justo para lo que tiene adentro.
-        text: el texto que muestra: "Alternativa".
-    -->
-    <TextView
-        android:id="@+id/txtGeneroDetalle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Alternativa"
-        />
-
-    <!--
-        TextView: muestra un texto que la persona solo lee.
-        id: crea el id txtVecesDetalle. Con él, Kotlin encuentra este componente.
-        layout_width: ancho justo para lo que tiene adentro.
-        layout_height: alto justo para lo que tiene adentro.
-        textSize: tamaño de la letra (sp: respeta el tamaño de letra que eligió la persona en su teléfono).
-        text: el texto que muestra: "Escuchada 12 veces".
-    -->
-    <TextView
-        android:id="@+id/txtVecesDetalle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:text="Escuchada 12 veces"
-        />
-    <!--
-        ImageButton: botón que muestra una imagen en vez de texto.
-        id: crea el id btnPlayDetalle. Con él, Kotlin encuentra este componente.
-        layout_width: ancho fijo de 64dp (dp: medida que se ve igual en cualquier pantalla).
-        layout_height: alto fijo de 64dp (dp: medida que se ve igual en cualquier pantalla).
-        layout_marginTop: espacio por fuera, arriba del componente.
-        src: la imagen: el ícono ic_media_play, que ya viene con Android.
-        background: fondo transparente: solo se ve el ícono.
-        contentDescription: lo que lee en voz alta el lector de pantalla, para personas que no ven: "Escuchar 30 segundos".
-    -->
-    <ImageButton
-        android:id="@+id/btnPlayDetalle"
-        android:layout_width="64dp"
-        android:layout_height="64dp"
-        android:layout_marginTop="8dp"
-        android:src="@android:drawable/ic_media_play"
-        android:background="@android:color/transparent"
-        android:contentDescription="Escuchar 30 segundos"/>
-    <!--
-        Switch: interruptor que se enciende o se apaga.
-        id: crea el id swFavoritaDetalle. Con él, Kotlin encuentra este componente.
-        layout_width: ancho igual al de su contenedor.
-        layout_height: alto justo para lo que tiene adentro.
-        layout_marginTop: espacio por fuera, arriba del componente.
-        text: lo que se lee al lado del interruptor: "Favorita".
-        checked: aparece marcado al abrir la pantalla.
-    -->
-    <Switch
-        android:id="@+id/swFavoritaDetalle"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Favorita"
-        android:checked="true"/>
-    <!--
-        Button: botón con texto.
-        id: crea el id btnEliminarDetalle. Con él, Kotlin encuentra este componente.
-        layout_width: ancho igual al de su contenedor.
-        layout_height: alto igual al de su contenedor.
-        layout_marginTop: espacio por fuera, arriba del componente.
-        text: el texto del botón: "Eliminar de mi colección".
-    -->
-    <Button
-        android:id="@+id/btnEliminarDetalle"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="24dp"
-        android:text="Eliminar de mi colección"/>
-</LinearLayout>
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <ImageView
+            android:id="@+id/imgCaratulaDetalle"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:contentDescription="@string/caratula_desc"
+            android:src="@mipmap/ic_launcher" />
+
+        <TextView
+            android:id="@+id/txtCancionDetalle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/cancion_ejemplo_titulo"
+            android:textSize="26sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txtArtistaDetalle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cancion_ejemplo_artista"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/txtGeneroDetalle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/detalle_ejemplo_genero" />
+
+        <TextView
+            android:id="@+id/txtVecesDetalle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/detalle_ejemplo_veces"
+            android:textSize="16sp" />
+
+        <ImageButton
+            android:id="@+id/btnPlayDetalle"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_marginTop="8dp"
+            android:background="@android:color/transparent"
+            android:contentDescription="@string/escuchar_preview_desc"
+            android:src="@android:drawable/ic_media_play" />
+
+        <Switch
+            android:id="@+id/swFavoritaDetalle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:checked="true"
+            android:text="@string/detalle_favorita" />
+
+        <Button
+            android:id="@+id/btnEliminarDetalle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:onClick="btnEliminarOnClick"
+            android:text="@string/detalle_eliminar" />
+    </LinearLayout>
 
 </ScrollView>

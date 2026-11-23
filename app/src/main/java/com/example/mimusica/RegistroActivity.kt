@@ -1,35 +1,86 @@
-// El paquete: la carpeta donde vive este archivo. Debe ser igual al namespace del proyecto.
 package com.example.mimusica
 
-// Bundle: guarda el estado de la pantalla, por ejemplo al girar el teléfono.
 import android.os.Bundle
-// enableEdgeToEdge: la pantalla usa todo el teléfono, hasta los bordes.
+import android.util.Patterns
+import android.view.View
+import android.widget.CheckBox
+import android.widget.EditText
+import android.widget.RadioButton
+import android.widget.RadioGroup
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
-// AppCompatActivity: la clase base de una pantalla de Android.
 import androidx.appcompat.app.AppCompatActivity
-// ViewCompat: herramientas para trabajar con los componentes.
 import androidx.core.view.ViewCompat
-// WindowInsetsCompat: mide las barras del sistema (hora, batería y botones).
 import androidx.core.view.WindowInsetsCompat
 
-// RegistroActivity es una pantalla: hereda todo lo que sabe hacer AppCompatActivity.
 class RegistroActivity : AppCompatActivity() {
-    // onCreate se ejecuta una vez, cuando se abre la pantalla.
     override fun onCreate(savedInstanceState: Bundle?) {
-        // Primero hace lo que Android hace siempre al crear una pantalla.
         super.onCreate(savedInstanceState)
-        // Dibuja la pantalla detrás de las barras del sistema.
         enableEdgeToEdge()
-        // Dibuja en esta pantalla el layout activity_registro.xml (res/layout).
         setContentView(R.layout.activity_registro)
-        // Busca el componente con id main y espera a que Android mida las barras del sistema.
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            // Toma el tamaño de la barra de arriba (hora, batería) y la de abajo (botones).
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            // Deja ese espacio como padding, para que las barras no tapen nada.
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            // Devuelve las medidas, por si otro componente las necesita.
             insets
         }
+    }
+
+    fun txtIrLoginOnClick(view: View)
+    {
+        finish()
+    }
+
+    fun btnCrearCuentaOnClick(view: View)
+    {
+        //region Variables
+        val edtNombre = findViewById<EditText>(R.id.edtNombreRegistro)
+        val edtCorreo = findViewById<EditText>(R.id.edtCorreoRegistro)
+        val edtClave = findViewById<EditText>(R.id.edtClaveRegistro)
+        val edtRepetirClave = findViewById<EditText>(R.id.edtRepetirClaveRegistro)
+        val rgGenero = findViewById<RadioGroup>(R.id.rgGeneroRegistro)
+        val chkTerminos = findViewById<CheckBox>(R.id.chkTerminosRegistro)
+        val rbElegido = findViewById<RadioButton>(rgGenero.checkedRadioButtonId)
+
+        val nombre = edtNombre.text.toString().trim()
+        val correo = edtCorreo.text.toString().trim()
+        val clave = edtClave.text.toString()
+        val repetirClave = edtRepetirClave.text.toString()
+        val genero = rbElegido.text.toString()
+        //endregion
+
+        //region validadores
+        if (nombre.isEmpty()) {
+            edtNombre.error = "Escribe tu nombre"
+            edtNombre.requestFocus()
+            return
+        }
+        if (!Patterns.EMAIL_ADDRESS.matcher(correo).matches()) {
+            edtCorreo.error = "El correo no es válido"
+            edtCorreo.requestFocus()
+            return
+        }
+        if (clave.length < 6) {
+            edtClave.error = "Mínimo 6 caracteres"
+            edtClave.requestFocus()
+            return
+        }
+
+        if(clave!=repetirClave)
+        {
+            edtRepetirClave.error="Las contraseñas no coinciden"
+            edtRepetirClave.requestFocus()
+            return
+        }
+        if(!chkTerminos.isChecked)
+        {
+            Toast.makeText(this, "Debes aceptar los términos y condiciones", Toast.LENGTH_LONG).show()
+        }
+
+        Toast.makeText(this, "Cuenta creada $nombre. Te gusta $genero", Toast.LENGTH_LONG).show()
+
+        finish()
+        //endregion
+
+
     }
 }

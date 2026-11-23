@@ -1,5 +1,66 @@
-<!-- strings.xml: los textos de la app, cada uno con un nombre. -->
 <resources>
-    <!-- app_name: el nombre de la app. Se ve bajo el ícono del teléfono (android:label en el manifest). -->
-    <string name="app_name">MiMusica</string>
+    <string name="app_name">Mi Música</string>
+
+    <!-- Login -->
+    <string name="login_logo_desc">Logo de la aplicación</string>
+    <string name="login_hint_correo">Correo electrónico</string>
+    <string name="login_recordarme">Recordarme</string>
+    <string name="login_boton_ingresar">Ingresar</string>
+    <string name="login_ir_registro">¿No tienes cuenta? Regístrate</string>
+
+    <!-- Lista -->
+    <string name="lista_titulo">Mis Canciones</string>
+    <string name="lista_agregar">Agregar canción</string>
+    <string name="lista_salir">Cerrar sesión</string>
+    <string name="caratula_desc">Carátula</string>
+    <string name="cancion_ejemplo_titulo">Fix You</string>
+    <string name="cancion_ejemplo_artista">Coldplay</string>
+    <string name="cancion_ejemplo_2_titulo">Tren al Sur</string>
+    <string name="cancion_ejemplo_2_artista">Los Prisioneros</string>
+    <string name="cancion_ejemplo_3_titulo">Gracias a la Vida</string>
+    <string name="cancion_ejemplo_3_artista">Violeta Parra</string>
+    <string name="lista_mas_uno">+1</string>
+
+    <!-- Buscar -->
+    <string name="buscar_titulo">Buscar Canción</string>
+    <string name="buscar_hint">Ejemplo: fix you</string>
+    <string name="buscar_boton">Buscar</string>
+    <string name="buscar_resultados">Resultados</string>
+    <string name="buscar_ejemplo_1_artista_genero">Coldplay · Alternativa</string>
+    <string name="buscar_ejemplo_2_titulo">Fix You (Live)</string>
+    <string name="buscar_ejemplo_2_artista_genero">Sam Smith · Pop</string>
+    <string name="buscar_ejemplo_3_titulo">Fix You (feat. Tyler Ward)</string>
+    <string name="buscar_ejemplo_3_artista_genero">Boyce Avenue · Cantautores</string>
+    <string name="escuchar_preview_desc">Escuchar 30 segundos</string>
+
+    <!-- Detalle -->
+    <string name="detalle_ejemplo_genero">Alternativa</string>
+    <string name="detalle_ejemplo_veces">Escuchada 12 veces</string>
+    <string name="detalle_favorita">Favorita</string>
+    <string name="detalle_eliminar">Eliminar de mi colección</string>
+
+    <!-- Registro -->
+    <string name="registro_titulo">Crear cuenta</string>
+    <string name="registro_subtitulo">Guarda tus canciones favoritas</string>
+    <string name="hint_nombre">Nombre</string>
+    <string name="hint_correo">Correo</string>
+    <string name="hint_clave">Contraseña</string>
+    <string name="hint_repetir_clave">Repetir contraseña</string>
+    <string name="registro_pregunta_genero">¿Qué escuchas más?</string>
+    <string name="genero_rock">Rock</string>
+    <string name="genero_pop">Pop</string>
+    <string name="genero_urbano">Urbano</string>
+    <string name="genero_otro">Otro</string>
+    <string name="registro_terminos">Acepto los términos y condiciones</string>
+    <string name="registro_boton">Crear cuenta</string>
+    <string name="registro_ir_login">¿Ya tienes cuenta? Ingresa</string>
+
+    <!-- IA -->
+    <string name="ia_titulo">Playlist con IA</string>
+    <string name="ia_volver">Volver a la lista</string>
+    <string name="ia_pregunta">¿Cómo te sientes hoy?</string>
+    <string name="ia_hint_animo">Ej: cansado, quiero algo tranquilo para estudiar</string>
+    <string name="ia_boton">Generar playlist</string>
+    <string name="ia_tu_playlist">Tu playlist</string>
+    <string name="ia_respuesta_ejemplo">Para estudiar tranquilo:\n\n1. Fix You, Coldplay\n2. Gracias a la Vida, Violeta Parra\n3. Tren al Sur, Los Prisioneros</string>
 </resources>

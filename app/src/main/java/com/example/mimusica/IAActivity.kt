@@ -1,35 +1,44 @@
-// El paquete: la carpeta donde vive este archivo. Debe ser igual al namespace del proyecto.
 package com.example.mimusica
 
-// Bundle: guarda el estado de la pantalla, por ejemplo al girar el teléfono.
 import android.os.Bundle
-// enableEdgeToEdge: la pantalla usa todo el teléfono, hasta los bordes.
+import android.view.View
+import android.widget.EditText
+import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
-// AppCompatActivity: la clase base de una pantalla de Android.
 import androidx.appcompat.app.AppCompatActivity
-// ViewCompat: herramientas para trabajar con los componentes.
 import androidx.core.view.ViewCompat
-// WindowInsetsCompat: mide las barras del sistema (hora, batería y botones).
 import androidx.core.view.WindowInsetsCompat
 
-// IAActivity es una pantalla: hereda todo lo que sabe hacer AppCompatActivity.
 class IAActivity : AppCompatActivity() {
-    // onCreate se ejecuta una vez, cuando se abre la pantalla.
     override fun onCreate(savedInstanceState: Bundle?) {
-        // Primero hace lo que Android hace siempre al crear una pantalla.
         super.onCreate(savedInstanceState)
-        // Dibuja la pantalla detrás de las barras del sistema.
         enableEdgeToEdge()
-        // Dibuja en esta pantalla el layout activity_iaactivity.xml (res/layout).
-        setContentView(R.layout.activity_iaactivity)
-        // Busca el componente con id main y espera a que Android mida las barras del sistema.
+        setContentView(R.layout.activity_ia)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            // Toma el tamaño de la barra de arriba (hora, batería) y la de abajo (botones).
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            // Deja ese espacio como padding, para que las barras no tapen nada.
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            // Devuelve las medidas, por si otro componente las necesita.
             insets
         }
+    }
+
+    fun btnVolverOnClick(view: View)
+    {
+        finish()
+    }
+
+    fun btnGenerarOnClick(view: View)
+    {
+        val edtAnimo = findViewById<EditText>(R.id.edtAnimoIA)
+        val txtRespuesta = findViewById<TextView>(R.id.txtRespuestaIA)
+        val animo = edtAnimo.text.toString().trim()
+
+        if(animo.isEmpty())
+        {
+            edtAnimo.error = "Coméntanos como te sientes"
+            edtAnimo.requestFocus()
+            return
+        }
+
+        txtRespuesta.text = "Buscando canciones para: $animo"
     }
 }
