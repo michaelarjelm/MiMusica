@@ -7,6 +7,8 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 
 class ListaActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -18,6 +20,21 @@ class ListaActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+        val canciones= listOf(
+            Cancion("Fix You", "Coldplay", "Alternativa",12),
+            Cancion("Tren al Sur", "Los Prisioneros", "Rock", 8),
+            Cancion("Gracias a la Vida", "Violeta Parra", "Folclor", 5),
+            Cancion("Cuando Pase el Temblor", "Soda Stereo", "Rock", 7),
+            Cancion("Ojitos Lindos", "Bad Bunny", "Urbano", 20),
+            Cancion("Flowers", "Miley Cyrus", "Pop", 3),
+            Cancion("Déjate Caer", "Los Tres", "Rock", 4),
+            Cancion("Vivir Mi Vida", "Marc Anthony", "Salsa", 9)
+        )
+
+        val rvCanciones = findViewById<RecyclerView>(R.id.rvCancionesLista)
+        rvCanciones.layoutManager= LinearLayoutManager(this)
+        rvCanciones.adapter= CancionAdapter(canciones)
     }
 
     fun btnAgregarOnclick(view: View)
@@ -35,14 +52,5 @@ class ListaActivity : AppCompatActivity() {
     fun btnSalirOnClick(view: View)
     {
         finish()
-    }
-
-    fun filaOnClick(view: View)
-    {
-        val datos = view.tag.toString().split(";")
-        val intent = Intent (this, DetalleActivity::class.java)
-        intent.putExtra("cancion", datos[0])
-        intent.putExtra("artista", datos[1])
-        startActivity(intent)
     }
 }

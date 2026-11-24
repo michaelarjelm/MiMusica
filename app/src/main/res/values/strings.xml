@@ -38,6 +38,7 @@
     <string name="detalle_ejemplo_veces">Escuchada 12 veces</string>
     <string name="detalle_favorita">Favorita</string>
     <string name="detalle_eliminar">Eliminar de mi colección</string>
+    <string name="detalle_volver">Volver</string>
 
     <!-- Registro -->
     <string name="registro_titulo">Crear cuenta</string>

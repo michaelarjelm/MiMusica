@@ -39,7 +39,7 @@ class MainActivity : AppCompatActivity() {
         }
         if(!Patterns.EMAIL_ADDRESS.matcher(correo).matches())
         {
-            edtCorreo.error = "El correo es válido"
+            edtCorreo.error = "El correo no es válido"
             edtCorreo.requestFocus()
             return
         }

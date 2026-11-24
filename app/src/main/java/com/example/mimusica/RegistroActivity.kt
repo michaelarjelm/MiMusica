@@ -74,6 +74,7 @@ class RegistroActivity : AppCompatActivity() {
         if(!chkTerminos.isChecked)
         {
             Toast.makeText(this, "Debes aceptar los términos y condiciones", Toast.LENGTH_LONG).show()
+            return
         }
 
         Toast.makeText(this, "Cuenta creada $nombre. Te gusta $genero", Toast.LENGTH_LONG).show()

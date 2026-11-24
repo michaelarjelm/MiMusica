@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:paddingVertical="8dp"
+    android:background="?attr/selectableItemBackground">
+
+    <ImageView
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:src="@mipmap/ic_launcher"
+        android:contentDescription="Caratula"/>
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_marginStart="12dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/txtTituloFilaItem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Titulo"
+            android:textSize="18sp"
+            android:textStyle="bold"/>
+        <TextView
+            android:id="@+id/txtArtistaFilaItem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Artista"
+            android:textSize="14sp"/>
+        <TextView
+            android:id="@+id/txtVecesFilaItem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Escuchado 0 veces"
+            android:textSize="12sp"/>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnMasUnoFilaItem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="+1"/>
+
+</LinearLayout>

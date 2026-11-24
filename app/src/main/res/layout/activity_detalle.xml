@@ -74,6 +74,14 @@
             android:layout_marginTop="24dp"
             android:onClick="btnEliminarOnClick"
             android:text="@string/detalle_eliminar" />
+
+        <Button
+            android:id="@+id/btnVolverDetalle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:onClick="btnVolverOnClick"
+            android:text="@string/detalle_volver" />
     </LinearLayout>
 
 </ScrollView>

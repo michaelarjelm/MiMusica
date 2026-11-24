@@ -22,15 +22,28 @@ class DetalleActivity : AppCompatActivity() {
 
         val cancion = intent.getStringExtra("cancion")
         val artista = intent.getStringExtra("artista")
+        val genero = intent.getStringExtra("genero")
+        val veces = intent.getIntExtra("veces", 0)
+
         val txtCancion = findViewById<TextView>(R.id.txtCancionDetalle)
         val txtArtista= findViewById<TextView>(R.id.txtArtistaDetalle)
+        val txtGenero = findViewById<TextView>(R.id.txtGeneroDetalle)
+        val txtVeces = findViewById<TextView>(R.id.txtVecesDetalle)
+
         txtCancion.text =cancion
         txtArtista.text = artista
+        txtGenero.text = genero
+        txtVeces.text = "Escuchada $veces veces"
     }
 
     fun btnEliminarOnClick(view: View)
     {
         Toast.makeText(this, "Canción eliminada", Toast.LENGTH_SHORT).show()
+        finish()
+    }
+
+    fun btnVolverOnClick(view: View)
+    {
         finish()
     }
 }
