@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "767577301304",
+    "project_id": "iot-jueves22",
+    "storage_bucket": "iot-jueves22.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:767577301304:android:9921fa71bacf53761661cd",
+        "android_client_info": {
+          "package_name": "com.example.mimusica"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBhb4L353cUKBqHOsjQfQTQClUyXgq2A8s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

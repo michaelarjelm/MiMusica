@@ -12,6 +12,8 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseAuthUserCollisionException
 
 class RegistroActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -48,7 +50,7 @@ class RegistroActivity : AppCompatActivity() {
         val genero = rbElegido.text.toString()
         //endregion
 
-        //region validadores
+        //region validadores Locales
         if (nombre.isEmpty()) {
             edtNombre.error = "Escribe tu nombre"
             edtNombre.requestFocus()
@@ -76,12 +78,25 @@ class RegistroActivity : AppCompatActivity() {
             Toast.makeText(this, "Debes aceptar los términos y condiciones", Toast.LENGTH_LONG).show()
             return
         }
+        //endregion localew
 
-        Toast.makeText(this, "Cuenta creada $nombre. Te gusta $genero", Toast.LENGTH_LONG).show()
-
-        finish()
-        //endregion
-
-
+        val auth = FirebaseAuth.getInstance()
+        auth.createUserWithEmailAndPassword(correo,clave)
+            .addOnCompleteListener(this) { tarea ->
+                if (tarea.isSuccessful) {
+                    Toast.makeText(
+                        this,
+                        "Cuenta creada, $nombre. Te gusta: $genero",
+                        Toast.LENGTH_LONG
+                    ).show()
+                    auth.signOut()
+                    finish()
+                }else if ( tarea.exception is FirebaseAuthUserCollisionException){
+                    edtCorreo.error="Este correo ya tiene una cuenta"
+                    edtCorreo.requestFocus()
+                }else{
+                    Toast.makeText(this, "No se pudo crear la cuenta: ${tarea.exception?.message}", Toast.LENGTH_LONG).show()
+                }
+            }
     }
 }
