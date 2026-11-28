@@ -5,12 +5,12 @@ import android.os.Bundle
 import android.util.Patterns
 import android.view.View
 import android.widget.EditText
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseAuthUserCollisionException
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity() {
         val correo = edtCorreo.text.toString()
         val clave = edtClave.text.toString()
         //endregion
-        //region validaciones
+        //region validaciones locales
         if(correo.isEmpty())
         {
             edtCorreo.error="Debes ingresar un correo"
@@ -53,8 +53,21 @@ class MainActivity : AppCompatActivity() {
         }
         //endregion
 
-        val intent = Intent(this, ListaActivity::class.java)
-        startActivity(intent)
+        val auth = FirebaseAuth.getInstance()
+        auth.signInWithEmailAndPassword(correo, clave)
+            .addOnCompleteListener(this) { entregado->
+                if(entregado.isSuccessful)
+                {
+                    Toast.makeText(this, "Hola, $correo", Toast.LENGTH_SHORT).show()
+                    val intent = Intent(this, ListaActivity::class.java)
+                    startActivity(intent)
+                    finish()
+                }else{
+                    Toast.makeText(this, "Correo o contraseña incorrectos", Toast.LENGTH_LONG).show()
+                }
+
+            }
+
     }
 
     fun txtRegistroOnclick(view: View)

@@ -82,8 +82,8 @@ class RegistroActivity : AppCompatActivity() {
 
         val auth = FirebaseAuth.getInstance()
         auth.createUserWithEmailAndPassword(correo,clave)
-            .addOnCompleteListener(this) { tarea ->
-                if (tarea.isSuccessful) {
+            .addOnCompleteListener(this) { entregado ->
+                if (entregado.isSuccessful) {
                     Toast.makeText(
                         this,
                         "Cuenta creada, $nombre. Te gusta: $genero",
@@ -91,11 +91,11 @@ class RegistroActivity : AppCompatActivity() {
                     ).show()
                     auth.signOut()
                     finish()
-                }else if ( tarea.exception is FirebaseAuthUserCollisionException){
+                }else if ( entregado.exception is FirebaseAuthUserCollisionException){
                     edtCorreo.error="Este correo ya tiene una cuenta"
                     edtCorreo.requestFocus()
                 }else{
-                    Toast.makeText(this, "No se pudo crear la cuenta: ${tarea.exception?.message}", Toast.LENGTH_LONG).show()
+                    Toast.makeText(this, "No se pudo crear la cuenta: ${entregado.exception?.message}", Toast.LENGTH_LONG).show()
                 }
             }
     }
